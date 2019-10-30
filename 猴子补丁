@@ -1,0 +1,11 @@
+def sum(a,b):
+    print("sum函数被调用")
+    return a+b
+def newsum(*args):
+    print("newsum正在被调用")
+    s=0
+    for i in args:
+        s+=i
+    return s
+sum=newsum
+print(sum(1,2.3,4,5))
