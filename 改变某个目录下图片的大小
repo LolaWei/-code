@@ -1,0 +1,14 @@
+from PIL import Image  
+import os
+path=r"C:\Users\hp\Desktop"
+result_path=r"C:\Users\hp\Desktop"
+if not os.path.isdir(result_path):           #如果该路径不存在的话
+    os.mkdir(resultpath)                      #就再生成一个新的路径，如果路径已存在就会报错
+for pic in os.listdir(path):                  #os.listdir（path）会列举该目录下的文件
+    picpath=os.path.join("path",pic)           #把括号里的路径名合并在一起
+    print(picpath)
+    with Image.open(picpath) as im:             #打开图片
+        w,h=im.size                             #生成图片的长和高
+        n=w/1366 if (w/1366)>=(h/640) else h/640
+        im.thumbnail(w/n,h/n)                    #缩小图片
+        im.save(resultpath+"/finish_"+pic.split(".")[0]+".jpg","jpeg") #保存图片，参数名分别为图片的名字和图片格式
