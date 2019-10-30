@@ -1,0 +1,10 @@
+class Student:
+    name="unknown"
+stu1=Student()
+print(Student.name)
+print(stu1.name)
+Student.name="未知"
+stu1.name="小明"
+Student.age=19
+print(Student.name)
+print("stu1的名字是%s,stu1的年纪是%d" %(stu1.name,stu1.age))
