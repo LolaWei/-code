@@ -1,0 +1,16 @@
+def countfile(file):
+    digits = others= spaces = letters = 0
+    f=open(file)
+    for eachline in f:#这里的f是一个可迭代的文件对象，按行处理
+        for c in eachline:#这里的c是按字符迭代，即每一行的单个字符
+            if c.isdigit():
+                digits+=1
+            elif c.isalpha():  #判断字符是不是字母
+                letters+=1
+            elif c.isspace():   #判断字符是不是空格
+                spaces+=1
+            else:
+                others+=1
+    print("数字：%d\n字母:%d\n空格：%d\n其他：%d"%(digits,letters,spaces,others)) #这里直接把换行写在引号里面就可以了
+
+countfile(r"C:\Users\hp\Desktop\hh.txt")
