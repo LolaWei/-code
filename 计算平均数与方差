@@ -1,0 +1,21 @@
+def mean_v(file):
+    infile=open(file)
+    num=mean=fsum=0
+    data=[]
+    for eachline in infile:
+        for each in eachline.split(","):#因为数据中间有逗号，所以用split把这些数据分开
+            data.append(float(each))
+            fsum+=float(each) #文件中的原始数据是字符型，所以要先把它们转换成数值型的
+            num+=1
+
+    if num==0:
+        return (0,0,0)
+    mean=float(fsum/num)     #计算平均值
+    sum=0
+    for each in data:       #重新扫描数据表，计算方差
+        s=(each-mean)**2
+        sum+=s
+    s2=sum/num**0.5
+    print("平均数为%.2f\n方差为%.2f"%(mean,s2))
+
+mean_v(r"C:\Users\hp\Desktop\hh.txt")
