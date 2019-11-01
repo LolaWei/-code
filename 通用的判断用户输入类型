@@ -3,7 +3,7 @@ def input_value(val_type,request_msg):#即使没有request_msg这个参数也没
         val =input(request_msg+"")                  #这一步把用户的输入存在val里面，即获取用户的输入
         try:
             val=val_type(val)   #判断用户输入能不能转换为所需的类型
-            return val
+            return val           #当python执行到return的时候就默认该函数结束了
         except ValueError:
             print(val+"不能转换成"+str(val_type)+"请继续输入...")
 x=input_value(int,"请输入正整数：")
