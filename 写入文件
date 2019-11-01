@@ -1,0 +1,8 @@
+outf=open(r"C:\Users\hp\Desktop\hh.txt","w")
+outf.write('Generated integers:\n')
+for i in range(10):
+    outf.write(",".join([str(i**2+j)
+                        for j in range(10)])+"\n") #"连接符".join(列表名称)可以用于把列表转换为字符（前提是列表里面都是字符型）
+    lines=[str(i)+"\n" for i in range(0,100)]
+    outf.writelines(lines)#writelines可以向文件中写入字符串序列seq，seq应该是一个返回字符串的可迭代对象
+    outf.close()
