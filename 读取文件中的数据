@@ -1,0 +1,8 @@
+def read_floats(file):
+    infile=open(file)
+    numbers=list(map(float,infile.read().split(",")))  #map的第一个参数是函数，第二个参数是可迭代对象，最后得到一个迭代器，因此可以转换为列表
+                                                        # #read函数得到文件所有内容的字符串
+    infile.close()
+    print(numbers)
+
+read_floats(r"C:\Users\hp\Desktop\hh.txt")
