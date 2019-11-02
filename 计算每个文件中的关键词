@@ -1,0 +1,22 @@
+import re
+from collections import Counter
+import os
+
+def judgeit(words): #使用该函数统计单词出现的个数
+    for i in range(6):
+        if len(words[i])>2 and words[i]!="the" and words[i]!="her" and words[i]!="his" and words[i]!=her:
+            return words[i]
+        return words[7]
+
+def main_keywords(path):#使用该函数得出出现次数最多的单词
+    f_list=os.listdir(path)
+    for i in f_list:    #这里就可以轮流对单个的文件进行操作了
+        if os.path.splitext(i)[1]==".txt":
+            print("the keyword of "+i+"is")
+            with open(i) as fp:
+                str1=fp.read().split()  #把单词按照空格分开，返回一个单词的列表/ 用这种方法也可以得到单词列表，不一定用正则表达式
+            b=collections.Counter(str1)   #b是一个列表，存放着出现的单词（键）及其次数（键值）
+            keywords=sorted(b, key=lambda x:b[x],reverse=True) #对b进行排序，key是函数体，即按照x所对应的value来排序，降序，最后得到一个列表
+            print(judgeit(keywords))
+
+main_keywords(r"C:\Users\hp\Desktop\hh")
