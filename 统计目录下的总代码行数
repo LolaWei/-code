@@ -1,0 +1,38 @@
+import os
+def open_file(dir):
+    file_list=os.listdir(dir)
+    return file_list
+
+def num_codes(file_list):    #该函数统计总的代码行数
+    count_code=0
+    for i in file_list:
+        if os.path.splitext(i)[1]==".py":
+            with open(i) as fpy:
+                for eachline in fpy.readlines(): #读取单行次数就+1 写了另一个函数，这样是可行的
+                    count_code+=1
+    return count_code
+print(num_codes(open_file('''E:\保留文件\研究生后\小甲鱼视频作业\自己的编程作业''')))
+
+def num_notes_blanklines(file_list):        #该函数统计空行和注释行
+    count_notes=0
+    count_blanklines=0
+    for i in file_list():
+        if os.path.splitext(i)[i]==".py":
+            for line in i.readlines():
+                str1=line.strip()
+                if str1.startwith("#"): #如果有#，表示是一行没有代码的注释
+                    count_notes += 1
+                if str1.startwith("'''") or str1.startwith(""""""):#这里为什么有四个双引号？
+                    count_notes += 1
+                    if str1.count("'''")==1 or str1.count("""""")==1:
+                        while True:                                #不管怎么样都要继续往下读
+                            line=i.readlines()  #继续往下读还是从头开始读？
+                            if ("""""" in line) or ("'''" in line):
+                                break
+                if str1=="":
+                    count_blanklines+=1
+    return count_notes,count_blanklines
+
+if __name__=="__main__":
+    num_codes(open_file("E:\保留文件\研究生后\小甲鱼视频作业\自己的编程作业"))
+    num_notes_blanklines(open_file("E:\保留文件\研究生后\小甲鱼视频作业\自己的编程作业"))
