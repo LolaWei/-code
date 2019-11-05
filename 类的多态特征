@@ -1,0 +1,16 @@
+class Person:
+    def CaptureImage(self):
+        print("Person类中的CaptureImage方法被调用！")
+
+class Camera:
+    def CaptureImage(self):
+        print("Camera类中的CaptureImage方法被调用！")
+
+def CaptureImageTest(arg):
+    arg.CaptureImage()  #这里的arg是一个实例对象
+
+if __name__=="__main__":
+    p=Person()
+    c=Camera()
+    CaptureImageTest(p)
+    CaptureImageTest(c)
