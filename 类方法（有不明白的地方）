@@ -1,0 +1,18 @@
+class Complex:
+    def __init__(self,real=0,image=0):
+        self.real=real
+        self.image=image
+
+    @classmethod
+    def add(cls,c1,c2):  #第一个参数是类本身，第二和第三个参数都是实例对象
+        print(cls)           #输出类方法的第一个参数，其实第一个参数就是complex类
+        c=Complex()    #c是一个实例对象，那就是说，在方法里面也可以对类进行实例化吗？
+        c.real=c1.real+c2.real  #指定实例对象的属性
+        c.image=c2.image+c2.image
+        return c
+
+if __name__=="__main__":
+    c1=Complex(1,2.5)           #为实例对象赋初值
+    c2=Complex(2.2,3.1)
+    c=Complex.add(c1,c2)   #通过类来调用实例方法
+    print("c1+c2的结果为%.2f+%.2fi"%(c.real,c.image))
