@@ -1,0 +1,17 @@
+class Complex:
+    def __init__(self,real=0,image=0):
+        self.real=real
+        self.image=image
+
+    @staticmethod
+    def add(c1,c2):  #第二和第三个参数都是实例对象
+        c.real=c1.real+c2.real  #指定实例对象的属性:实部相加
+        c.image=c2.image+c2.image #指定实例对象的属性:虚部相加
+        return c
+
+if __name__=="__main__":
+    c1=Complex(1,2.5)           #为实例对象赋初值
+    c2=Complex(2.2,3.1)
+    c=Complex()   #这里一定要先把c变成Complex的实例化对象
+    c.add(c1,c2)   #通过对象来调用实例方法
+    print("c1+c2的结果为%.2f+%.2fi"%(c.real,c.image))
