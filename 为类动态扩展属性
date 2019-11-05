@@ -1,0 +1,17 @@
+from types import MethodType
+class Student:
+    pass
+def SetName(self,name):
+    self.name=name
+def SetSno(self,sno):
+    self.sno=sno
+
+if __name__=="__main__":
+    stu1=Student()
+    stu2=Student()
+    stu1.SetName=MethodType(SetName,stu1) #为stu1绑定setname方法
+    Student.SetSno=SetSno  #为Student类绑定SetSno方法
+    stu1.SetName("李晓明")
+    stu1.SetSno("1810100")
+    #stu2.SetName("张刚")
+    stu2.SetSno("1810101")
